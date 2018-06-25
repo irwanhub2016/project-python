@@ -21,9 +21,9 @@ class TestVodkaTransaksi(unittest.TestCase):
         driver.find_element_by_xpath("//div[@id='modal-daftar']/div/div/div[3]/div/form/div/div").click()
         driver.find_element_by_id("first-name-daftar").click()
         driver.find_element_by_id("first-name-daftar").clear()
-        driver.find_element_by_id("first-name-daftar").send_keys("Darah")
+        driver.find_element_by_id("first-name-daftar").send_keys("Aqua")
         driver.find_element_by_id("last-name-daftar").clear()
-        driver.find_element_by_id("last-name-daftar").send_keys("Joeang")
+        driver.find_element_by_id("last-name-daftar").send_keys("Cisalak")
         driver.find_element_by_id("email-daftar").clear()
         driver.find_element_by_id("email-daftar").send_keys("darahdjoeang@yahoo.com")
         driver.find_element_by_id("phone-number-daftar").clear()
@@ -40,19 +40,16 @@ class TestVodkaTransaksi(unittest.TestCase):
         try: self.driver.find_element(by=how, value=what)
         except NoSuchElementException as e: return False
         return True
-        print "Testing Success !"
 
     def is_alert_present(self):
         try: self.driver.switch_to_alert()
         except NoAlertPresentException as e: return False
         return True
-        print "Testing Failed !"
 
     def close_alert_and_get_its_text(self):
         try:
             alert = self.driver.switch_to_alert()
             alert_text = alert.text
-            print "Testing Success !"
             if self.accept_next_alert:
                 alert.accept()
             else:
@@ -65,6 +62,7 @@ class TestVodkaTransaksi(unittest.TestCase):
         time.sleep(3)
         self.driver.quit()
         self.assertEqual([], self.verificationErrors)
+        print "Testing Success !"
 
 
 if __name__ == "__main__":
